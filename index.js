@@ -6,8 +6,18 @@ document.querySelectorAll(".drum")[i].addEventListener("click", handleClick);
 function handleClick() {
     
     let buttonInnerHTML = this.innerHTML;
+    makeSound(buttonInnerHTML);
 
-    switch (buttonInnerHTML) {
+}
+
+document.addEventListener("keydown", function(event) {
+
+    makeSound(event.key);
+});
+
+    function makeSound(key) {
+
+    switch (key) {
         case "w":
             var crash = new Audio("sounds/crash.mp3");
             crash.play();
@@ -40,5 +50,4 @@ function handleClick() {
         default:
             console.log(buttonInnerHTML);
     }
-}
-
+}  
